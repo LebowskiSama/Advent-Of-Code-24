@@ -25,7 +25,7 @@ Overall the tasks were pretty straightforward and gentle enough for Day-1 and it
 
 # Day 2 -  Red-Nosed Reports
 ## Part 1 - N safe reports
-Date: 6 Nov 2024
+Date: 6 Dec 2024
 Time to solve: 50 mins
 
 This one doesn't disappoint either. Fun puzzle here. Essentially, you're to judge reports (arrays) and how they progress. A report is considered a safe report if:
@@ -40,7 +40,7 @@ The problem was broken down into:
     - Calculate the successive differences during traversal and check for constraint 2. Break if not satisfied, increment safe reports if satisfied.
 
 ## Part 2 - Dampened accounted safety
-Date: 7 Nov 2024
+Date: 7 Dec 2024
 Time to solve: 130 mins
 
 Alright, we now have a problem that gets you thinking.
@@ -53,3 +53,30 @@ a. maintain ordering or
 b. ensure differences are within safety levels (at least 1, at most 3).
 
 Bottom line: a brute force approach was taken, where the constraints are checked after popping each element of the array, increasing memory complexity by duplicating on a report level and compounding time complexity by iterating at least n<sup>2</sup> per report. Sure enough, a more optimal solution must exist.
+
+# Day 3 - Mull Over It
+## Part 1 - mul(X, Y) pattern matching
+Date: 8 Dec 2024
+Time to solve: 32 mins
+
+Pretty straightforward, given a large string with hidden patterns of mul(X, Y) where X and Y represent integers, we need to do some simple regex pattern matching to extract these strings and parse them into integers and sum up the products.
+
+## Part 2 - conditional mul(X, Y) pattern matching
+Date: 20 Dec 2024
+Time to solve: cummulative ~150 mins
+
+You essentially solve for part 1 but with the added conditional constraints of:
+1. You only consider mul(X, Y) patterns that occur between a do() and don't() instance in that order.
+2. You also consider all mul(X, Y) patterns till the occurence of the first don't() from the start of the string.
+
+I spent close to 2+ hrs solving this but that's mainly due to what I'd call a communication gap.
+1. The site doesn't explain that all lines in the input string are to be considered as one and not separate. This has been a huge misunderstanding.
+2. They also needlessly state that only the recentmost do() and don't() conditionals are valid. This is misleading and can have a solver think only the last chunk of do() don't() code is to be considered after the first chunk from start to first don't().
+
+I could only overcome these pitfalls or lack of clarity but looking at Reddit posts on how they tackled it, only to be surprised that you have to parse it a certain way, that isn't obvious if you're just reading the problem statement.
+
+A few other things learnt:
+1. The Rust `regex` engine doesn't have look ahead search whereas Python does. This makes using Python preferrable although the problem can be tackled in Rust without that added power. Just a little more tedious to build in Rust (which has also been accomplished).
+2. If you're stuck after some time, there's no harm in looking up on how others have approached the problem. This is essential if you've misinterpreted the problem statement or if the statement itself isn't clear or contains any ambiguity at all.
+
+All in all, solid problem, had fun, however, the statement could've been a bit clearer maybe.
