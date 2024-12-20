@@ -1,5 +1,5 @@
 // main.rs
-// Day 2 - Mull It Over
+// Day 3 - Mull It Over
 // part 1 - find strict occurences of mul(X, Y) from string inputs and give out sum of such multiplication instructions
 // part 2 - find and calculate mul() values only between instances of do() and don't(), always consider instances up until first don't() from start of string
 
